@@ -24,8 +24,8 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
-# When deployed in a subdirectory for testing, set this:
-subdir: net-snmp-htdocs-experiment
+# When deployed in a subdirectory for testing, set this, with a leading slash:
+subdir: /net-snmp-htdocs-experiment
 
 # Build settings
 markdown: kramdown
