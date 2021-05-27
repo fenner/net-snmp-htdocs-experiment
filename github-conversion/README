@@ -1,0 +1,23 @@
+General:
+
+- Any .html file that includes -top and -bottom, should instead change to have
+  the Jekyll "front matter", with a simple conversion:
+
+<!--#set var="section" value="about" -->
+<!--#include virtual="/page-top.html" -->
+
+-->
+
+---
+section: about
+---
+
+
+- The default layout is a combination of page-top and page-bottom with the
+  content holder in the middle.  It needs some updates:
+  - The "<!--#if expr" sections need to change to Liquid expressions
+  - We need to find a replacement for the modification date
+
+- Improvements
+  - The current version can move from the template to the config.yaml if we care to
+  - Each page front matter could get a title

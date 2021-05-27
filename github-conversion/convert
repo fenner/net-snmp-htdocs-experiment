@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+#
+# I'm sorry, I know that the project uses perl, but it has just been
+# too long.
+
+import os
+import re
+
+rootDir = '..'  # I assume you are running me from the subdirectory
+for dirname, subdirList, fileList in os.walk( rootDir ):
+    if dirname.startswith( '_' ):
+        print("Skipping directory", dirname)
+        continue
+    print("Processing directory", dirname)
+    for f in fileList:
+        if not f.endswith( '.html' ):
+            print("Skipping file", f)
+            continue
+        print("Processing file", f)
+        try:
+            contents = open( os.path.join( dirname, f ) ).read()
+        except UnicodeDecodeError as e:
+            print("Skipping", f, "due to", e)
+            continue
+        # Heuristic: do we include the top header?
+        if 'include virtual="/page-top.html' not in contents:
+            print(f,"does not use page-top.html, skipping")
+            continue
+        # Don't rely on the <!-- CONTENT START --> comment, just in case.
+        # Just get lines from the beginning until there's not <!--#
+        contentlines = contents.splitlines()
+        var = {}
+        firstLine = None
+        lastLine = None
+        titleLine = None
+        for i, c in enumerate(contentlines):
+            m = re.match( '\s*<!--#set var="(\S+)" value="(\S+)" -->\s*$', c )
+            if m:
+                var[ m.group(1) ] = m.group( 2 )
+            if 'class="SectionTitle"' in c:
+                titleLine = i + 1
+            if i == titleLine:
+                var[ 'title' ] = c
+                contentlines[ i ] = '{{ page.title }}'
+            if firstLine is None and c != "" and not c.startswith("<!--#"):
+                firstLine = i
+            if c != "" and 'page-bottom.html' not in c:
+                lastLine = i
+        newContent = []
+        # Front matter
+        newContent.append( "---" )
+        for k, v in var.items():
+            newContent.append( "%s: %s" % ( k, v ) )
+        newContent.append( "---" )
+        newContent += contentlines[ firstLine:lastLine+1 ]
+	# Be bold, we're working inside source control.
+        open( os.path.join( dirname, f ), "w" ).write( "\n".join( newContent ) )
