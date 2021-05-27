@@ -20,14 +20,14 @@ section: tutorial
     <h2>Net-SNMP Agent: snmpd</h2>
     <p>
       The first daemon is <b>snmpd</b>, which is a
-      <a href="/tutorial/tutorial-4/snmp/terms.html#snmp">SNMP</a> agent. <i>snmpd</i>
+      <a href="{{ site.subdir }}/tutorial/tutorial-4/snmp/terms.html#snmp">SNMP</a> agent. <i>snmpd</i>
       listens for SNMP requests. A typical SNMP agent allows a client to
       query information about the device running the SNMP agent. Some
       devices also allow configuration to be set via SNMP.
     </p><p>
       Depending on configuration, <i>snmpd</i> may also act as an
-      <a href="/tutorial/tutorial-4/snmp/terms.html#AgentX">AgentX</a> or
-      <a href="/tutorial/tutorial-4/snmp/terms.html#SMUX">SMUX</a> master agent. If your
+      <a href="{{ site.subdir }}/tutorial/tutorial-4/snmp/terms.html#AgentX">AgentX</a> or
+      <a href="{{ site.subdir }}/tutorial/tutorial-4/snmp/terms.html#SMUX">SMUX</a> master agent. If your
       situation warrants it, <i>snmpd</i> can even act as a client to
       an AgentX master agent.
     </p><p>
@@ -45,10 +45,10 @@ section: tutorial
     <h2>Net-SNMP Trap Receiver: snmptrapd</h2>
     <p>
       The second daemon is <b>snmptrapd</b>, which is a SNMP
-      <a href="/tutorial/tutorial-4/snmp/terms.html#notification">notification</a> receiver.
+      <a href="{{ site.subdir }}/tutorial/tutorial-4/snmp/terms.html#notification">notification</a> receiver.
       <i>snmptrapd</i> listens for incoming SNMP notifications
-      (<a href="/tutorial/tutorial-4/snmp/terms.html#trap">traps</a> and
-      <a href="/tutorial/tutorial-4/snmp/terms.html#informs">informs</a>). When a notification
+      (<a href="{{ site.subdir }}/tutorial/tutorial-4/snmp/terms.html#trap">traps</a> and
+      <a href="{{ site.subdir }}/tutorial/tutorial-4/snmp/terms.html#informs">informs</a>). When a notification
       is received, <i>snmptrapd</i> can be configured to
     <ul>
       <li>log the notification

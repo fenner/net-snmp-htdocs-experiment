@@ -61,30 +61,30 @@ section: development
         to the table, set this variable to 0 and regenerate the code.
       <li><var>m2c_table_dependencies</var> indicates whether or not extra
         code will be generated to handle
-        <a href="/tutorial/terms.html#depend">dependencies</a> between
+        <a href="{{ site.subdir }}/tutorial/terms.html#depend">dependencies</a> between
         this table and another table or scalar object. It defaults to 0 unless
         a table has external indexes. <var>ifXTable</var> is an
-        <a href="/tutorial/terms.html#augment">augmentation</a> table,
+        <a href="{{ site.subdir }}/tutorial/terms.html#augment">augmentation</a> table,
         so it does have an external index. At this point, I'm not sure
         whether or not we'll need the dependency checking, so we'll
         leave it enabled.
       <li><var>m2c_table_row_creation</var> indicates whether or not extra
         code will be generated to support
-        <a href="/tutorial/terms.html#rowcreate">row creation</a>. The
+        <a href="{{ site.subdir }}/tutorial/terms.html#rowcreate">row creation</a>. The
         default is to 0 unless the table contains colums with a
-        <a href="/tutorial/terms.html#max-access">MAX-ACCESS</a> of
+        <a href="{{ site.subdir }}/tutorial/terms.html#max-access">MAX-ACCESS</a> of
         <var>read-create</var>. The <var>ifXTable</var> does not, so
         row-creation will have to wait for another tutorial.
       <li><var>m2c_context_reg</var> defines the variable type that
         will be used as the <var>ifXTable</var>
-        <a href="/tutorial/mfd/index.html#tablecontext">table context</a>.
+        <a href="{{ site.subdir }}/tutorial/mfd/index.html#tablecontext">table context</a>.
         This pointer is for our use, to keep any data we'd like to
         have access to during the various processing phases. The default
-        is to use a <a href="/tutorial/data_list.html">netsnmp_data_list</a>,
+        is to use a <a href="{{ site.subdir }}/tutorial/data_list.html">netsnmp_data_list</a>,
         and that should be sufficient for our needs.
       <li><var>m2c_data_context</var> defines the variable type that
         will be used as the <var>ifXTable</var>
-        <a href="/tutorial/mfd/index.html#datacontext">data context</a>.
+        <a href="{{ site.subdir }}/tutorial/mfd/index.html#datacontext">data context</a>.
         The default is to generate a structure with space for all the columns
         in the table. However, since we are getting our data from an external
         source, we can make use of existing structure. Since there are

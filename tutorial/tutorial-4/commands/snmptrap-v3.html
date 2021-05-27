@@ -9,7 +9,7 @@ section: tutorial
 	so make sure you get it before running the commands found in
 	this tutorial.</b> 
       <p><b>Note:</b>  A new tutorial for net-snmp 5.0 and above <a
-      href="/tutorial-5">is available</a> as well.  The commands is
+      href="{{ site.subdir }}/tutorial-5">is available</a> as well.  The commands is
       the ucd-snmp specific tutorial will not work as expected if you
       are using net-snmp and not ucd-snmp.
       <br><br>
@@ -36,12 +36,12 @@ INFORM, which is nothing more than an acknowledged TRAP.  IE, when the
 remote application receives the INFORM it sends back a "I got it"
 message.  This is nice because then the person sending the traps can
 keep trying until the trap gets through.  The net-snmp <a
-href="/man/snmptrap.1.html"><b>snmptrap</b></a> program can send both
+href="{{ site.subdir }}/man/snmptrap.1.html"><b>snmptrap</b></a> program can send both
 TRAPs and INFORMs.  Add -Ci to the command line of snmptrap if you
 want it to send an INFORM instead, or call the <b>snmpinform</b>
 command (which is functionally the same as snmptrap -Ci).  Note that
 you must use snmpv2c or snmpv3 to send INFORMs.  <a
-href="/man/snmptrapd.8.html">snmptrapd</a> is able to receive and
+href="{{ site.subdir }}/man/snmptrapd.8.html">snmptrapd</a> is able to receive and
 display both INFORMs and TRAPs.
 <p>
 <b>Note:</b> snmptrapd will <b>not</b> display SNMPv3
@@ -64,8 +64,8 @@ application is actually referenced by a combination of the user's name
 (called a "security Name") and a identifier for the given SNMP
 application your talking to (called an "engineID").  Normally when you
 use the rest of the snmp applications (<a
-href="/man/snmpget.1.html">snmpget</a>, <a
-href="/man/snmpwalk.1.html">snmpwalk</a>, ...) the application
+href="{{ site.subdir }}/man/snmpget.1.html">snmpget</a>, <a
+href="{{ site.subdir }}/man/snmpwalk.1.html">snmpwalk</a>, ...) the application
 "discovers" the remote engineID for you and then inserts the
 username, engineID and passwords into user database based on this
 remote engineID.  Makes things all nice and simple when talking to a

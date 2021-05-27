@@ -18,6 +18,17 @@ section: about
   - The "<!--#if expr" sections need to change to Liquid expressions
   - We need to find a replacement for the modification date
 
+- A bunch of files in dev/ didn't get converted even though they have
+  include top - what happened?
+
+- We need to decide how to handle a bunch of includes of text files
+  e.g., about/license.html
+
 - Improvements
   - The current version can move from the template to the config.yaml if we care to
-  - Each page front matter could get a title
+
+- One-offs
+  - support.html uses page-top2.html so wasn't auto-converted
+    but there is no page-top2.html
+
+
