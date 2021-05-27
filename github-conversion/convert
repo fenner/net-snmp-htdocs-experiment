@@ -8,7 +8,7 @@ import re
 
 rootDir = '..'  # I assume you are running me from the subdirectory
 for dirname, subdirList, fileList in os.walk( rootDir ):
-    if dirname.startswith( '_' ):
+    if dirname.startswith( '_' ) or '/_' in dirname:
         print("Skipping directory", dirname)
         continue
     print("Processing directory", dirname)
