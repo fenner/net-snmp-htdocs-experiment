@@ -1,2 +1,2 @@
 #!/bin/sh
-find . -name '*.html' | grep -v _site | xargs sed -i -e 's,href="/,href="{{ site.subdir }}/,g'
+find . -name '*.html' | grep -v _site | xargs sed -i -e 's,\(href\|src\)="/,\1="{{ site.subdir }}/,g'
